@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Cyber Crack | Investigación de Operaciones</title>
+  <title>Dashboard Cyber Crack | Proyecto 1</title>
+
+  
 
   <style>
     :root {
@@ -16,7 +18,8 @@
       --pastel-purple: #ede9fe;
       --pastel-green: #dcfce7;
       --pastel-yellow: #fef3c7;
-      --accent: #334155;
+      --pastel-pink: #fce7f3;
+      --accent: #0f172a;
       --shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
     }
 
@@ -48,7 +51,7 @@
       background: var(--pastel-green);
       color: #166534;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 18px;
     }
 
@@ -61,7 +64,7 @@
     }
 
     .subtitle {
-      max-width: 820px;
+      max-width: 860px;
       margin-top: 18px;
       font-size: 18px;
       color: var(--muted);
@@ -72,15 +75,44 @@
       margin: 42px auto 70px;
     }
 
+    .project-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .info-card strong {
+      font-size: 20px;
+      color: #111827;
+    }
+
     .summary {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 18px;
       margin-bottom: 36px;
     }
 
     .metric {
-      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 20px;
@@ -103,11 +135,15 @@
       background: var(--pastel-purple);
     }
 
+    .metric:nth-child(5) {
+      background: var(--pastel-pink);
+    }
+
     .metric span {
       display: block;
       font-size: 13px;
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
@@ -115,7 +151,7 @@
     .metric strong {
       display: block;
       margin-top: 8px;
-      font-size: 24px;
+      font-size: 22px;
       color: #111827;
     }
 
@@ -129,7 +165,7 @@
     .tab-button {
       border: 1px solid var(--border);
       background: #ffffff;
-      color: var(--accent);
+      color: #334155;
       padding: 12px 18px;
       border-radius: 999px;
       cursor: pointer;
@@ -144,9 +180,9 @@
     }
 
     .tab-button.active {
-      background: #0f172a;
+      background: var(--accent);
       color: #ffffff;
-      border-color: #0f172a;
+      border-color: var(--accent);
     }
 
     .viewer-card {
@@ -198,9 +234,13 @@
       text-align: center;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       .summary {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-info {
+        grid-template-columns: 1fr;
       }
 
       iframe {
@@ -231,7 +271,7 @@
 
 <body>
   <header>
-    <span class="tag">Investigación de Operaciones</span>
+    <span class="tag">Investigación de Operaciones para Ingeniería</span>
     <h1>Dashboards de optimización para Cyber Crack</h1>
     <p class="subtitle">
       Visualización ejecutiva de los escenarios de programación lineal aplicados a la asignación de horas de auditoría PCI DSS, costos operativos y cotización comercial.
@@ -239,19 +279,44 @@
   </header>
 
   <main>
+    <section class="project-info">
+      <div class="info-card">
+        <span>Estudiante</span>
+        <strong>Elías Granados Ulloa</strong>
+      </div>
+
+      <div class="info-card">
+        <span>Proyecto</span>
+        <strong>Proyecto 1</strong>
+      </div>
+
+      <div class="info-card">
+        <span>Curso</span>
+        <strong>Investigación de Operaciones para Ingeniería</strong>
+      </div>
+    </section>
+
     <section class="summary">
       <div class="metric">
         <span>Escenario A</span>
         <strong>$12,880.00</strong>
       </div>
+
+      <div class="metric">
+        <span>Escenario B</span>
+        <strong>$13,023.75</strong>
+      </div>
+
       <div class="metric">
         <span>Escenario C</span>
         <strong>$13,555.63</strong>
       </div>
+
       <div class="metric">
         <span>Escenario D</span>
         <strong>$14,288.75</strong>
       </div>
+
       <div class="metric">
         <span>Escenario E</span>
         <strong>$14,662.50</strong>
@@ -259,17 +324,28 @@
     </section>
 
     <section class="tabs">
-      <button class="tab-button active" onclick="loadDashboard('inciso_A_dashboard.html', 'Escenario A: propuesta base')">
+      <button class="tab-button active" onclick="loadDashboard(event, 'inciso_A_dashboard.html', 'Escenario A: propuesta base')">
         Inciso A
       </button>
-      <button class="tab-button" onclick="loadDashboard('inciso_C_dashboard.html', 'Escenario C: techos operativos')">
+
+      <button class="tab-button" onclick="loadDashboard(event, 'inciso_B_dashboard.html', 'Escenario B: segregación mínima de funciones')">
+        Inciso B
+      </button>
+
+      <button class="tab-button" onclick="loadDashboard(event, 'inciso_C_dashboard.html', 'Escenario C: techos operativos')">
         Inciso C
       </button>
-      <button class="tab-button" onclick="loadDashboard('inciso_D_dashboard.html', 'Escenario D: costos ASV actualizados')">
+
+      <button class="tab-button" onclick="loadDashboard(event, 'inciso_D_dashboard.html', 'Escenario D: costos ASV actualizados')">
         Inciso D
       </button>
-      <button class="tab-button" onclick="loadDashboard('inciso_E_dashboard.html', 'Escenario E: cuotas exactas')">
+
+      <button class="tab-button" onclick="loadDashboard(event, 'inciso_E_dashboard.html', 'Escenario E: cuotas exactas')">
         Inciso E
+      </button>
+
+      <button class="tab-button" onclick="loadDashboard(event, 'scripts.html', 'Scripts de Python utilizados en el proyecto')">
+          Scripts Python
       </button>
     </section>
 
@@ -290,7 +366,7 @@
   </footer>
 
   <script>
-    function loadDashboard(file, title) {
+    function loadDashboard(event, file, title) {
       document.getElementById("dashboardFrame").src = file;
       document.getElementById("viewerTitle").textContent = title;
       document.getElementById("openLink").href = file;
